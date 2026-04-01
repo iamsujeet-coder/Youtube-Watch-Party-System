@@ -8,15 +8,21 @@ require("dotenv").config();
 const Room = require("./models/Room");
 
 const app = express();
-app.use(cors());
+
+const CLIENT_URL = (process.env.CLIENT_URL || "http://localhost:5173").replace(/\/+$/g, "");
+const ALLOWED_ORIGINS = [CLIENT_URL, `${CLIENT_URL}/`];
+const corsOptions = {
+  origin: ALLOWED_ORIGINS,
+  methods: ["GET", "POST"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    methods: ["GET", "POST"],
-  },
+  cors: corsOptions,
 });
 
 const PORT = process.env.PORT || 5000;
