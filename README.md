@@ -1,7 +1,6 @@
 # MERN YouTube Watch Party
 
-Production-style MERN project with role-based real-time synced YouTube playback.
-
+Production-ready MERN application with real-time YouTube playback and role-based access control.
 ## Stack
 
 - MongoDB + Mongoose
@@ -72,7 +71,7 @@ If MongoDB is not connected, backend still runs in memory mode for development.
 - Start command: `npm start`
 - Environment variables:
   - `MONGO_URI=<your-atlas-uri>`
-  - `CLIENT_URL=<your-frontend-url>`
+  - `CLIENT_URL=<https://youtube-watch-party-system-1-g528.onrender.com/>`
 
 ### Frontend (Static Site)
 
@@ -80,6 +79,6 @@ If MongoDB is not connected, backend still runs in memory mode for development.
 - Build command: `npm install && npm run build`
 - Publish directory: `dist`
 - Environment variables:
-  - `VITE_SERVER_URL=<your-backend-url>`
+  - `VITE_SERVER_URL=<https://youtube-watch-party-system-d5q7.onrender.com/>`
 
 Free-tier note: backend may take a little time on first request after idle.
